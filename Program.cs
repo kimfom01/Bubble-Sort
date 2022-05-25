@@ -19,10 +19,10 @@ namespace Bubble_Sort
             string[] arr = new string[] { "kim", "john", "abigail", "bimbo", "yenebon" };
 
             // Sort Integers
-            BubbleSort(randNumb);
+            BubbleSortIntegers(randNumb);
 
             // Sort Strings
-            BubbleSort(arr);
+            BubbleSortStrings(arr);
 
             // Print strings
             foreach (string item in arr)
@@ -31,7 +31,7 @@ namespace Bubble_Sort
             }
         }
 
-        static void BubbleSortintegers(int[] Element)
+        static void BubbleSortIntegers(int[] Element)
         {
             for (int i = 0; i < Element.Length - 1; i++)
             {
