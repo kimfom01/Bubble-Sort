@@ -7,7 +7,6 @@ namespace Bubble_Sort
     {
         static void Main(string[] args)
         {
-            Stopwatch stopWatch = new Stopwatch();
             Random rnd = new Random();
             int size = 20000;
 
@@ -17,19 +16,22 @@ namespace Bubble_Sort
                 randNumb[i] = rnd.Next(100);
             }
 
-            stopWatch.Start();
+            string[] arr = new string[] { "kim", "john", "abigail", "bimbo", "yenebon" };
+
+            // Sort Integers
             BubbleSort(randNumb);
-            stopWatch.Stop();
 
-            TimeSpan ts = stopWatch.Elapsed;
+            // Sort Strings
+            BubbleSort(arr);
 
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
+            // Print strings
+            foreach (string item in arr)
+            {
+                Console.WriteLine(item);   
+            }
         }
 
-        static void BubbleSort(int[] Element)
+        static void BubbleSortintegers(int[] Element)
         {
             for (int i = 0; i < Element.Length - 1; i++)
             {
@@ -37,6 +39,23 @@ namespace Bubble_Sort
                 {
                     int tmp;
                     if (Element[j] > Element[j + 1])
+                    {
+                        tmp = Element[j];
+                        Element[j] = Element[j + 1];
+                        Element[j + 1] = tmp;
+                    }
+                }
+            }
+        }
+
+        static void BubbleSortStrings(string[] Element)
+        {
+            for (int i = 0; i < Element.Length - 1; i++)
+            {
+                for (int j = 0; j < Element.Length - i - 1; j++)
+                {
+                    string tmp;
+                    if (Element[j][0] > Element[j + 1][0])
                     {
                         tmp = Element[j];
                         Element[j] = Element[j + 1];
