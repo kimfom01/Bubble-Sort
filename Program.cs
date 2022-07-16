@@ -7,7 +7,7 @@ namespace Bubble_Sort
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            int size = 20000;
+            int size = 10;
 
             int[] randNumb = new int[size];
 
@@ -15,7 +15,7 @@ namespace Bubble_Sort
                 randNumb[i] = rnd.Next(100);
             }
 
-            string[] arr = new string[] { "kim", "john", "abigail", "bimbo", "yenebon" };
+            string[] arr = new string[] { "kim", "jonathan", "john", "abigail", "bimbo", "yenebon" };
 
             // Sort Integers
             BubbleSortIntegers(randNumb);
@@ -32,16 +32,16 @@ namespace Bubble_Sort
 
         static void BubbleSortIntegers(int[] Element)
         {
-            for (int i = 0; i < Element.Length - 1; i++)
+            for (int i = 1; i < Element.Length - 1; i++)
             {
-                for (int j = 0; j < Element.Length - i - 1; j++)
+                for (int j = Element.Length - 1; j >= i; j--)
                 {
                     int tmp;
-                    if (Element[j] > Element[j + 1])
+                    if (Element[j] < Element[j - 1])
                     {
                         tmp = Element[j];
-                        Element[j] = Element[j + 1];
-                        Element[j + 1] = tmp;
+                        Element[j] = Element[j - 1];
+                        Element[j - 1] = tmp;
                     }
                 }
             }
@@ -49,16 +49,16 @@ namespace Bubble_Sort
 
         static void BubbleSortStrings(string[] Element)
         {
-            for (int i = 0; i < Element.Length - 1; i++)
+            for (int i = 1; i < Element.Length - 1; i++)
             {
-                for (int j = 0; j < Element.Length - i - 1; j++)
+                for (int j = Element.Length - 1; j >= i; j--)
                 {
                     string tmp;
-                    if (Element[j][0] > Element[j + 1][0])
+                    if (Element[j].CompareTo(Element[j - 1]) < 0)
                     {
                         tmp = Element[j];
-                        Element[j] = Element[j + 1];
-                        Element[j + 1] = tmp;
+                        Element[j] = Element[j - 1];
+                        Element[j - 1] = tmp;
                     }
                 }
             }
